@@ -1,0 +1,22 @@
+/build
+/build-static
+/classes
+/bin
+/eclipse-bin
+/out
+/lib
+.idea
+*.iml
+*.ipr
+*.iws
+.packaging
+.xdoclet
+.settings
+.classpath
+.project
+.gradle
+nbproject
+
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*

@@ -1,0 +1,25 @@
+allprojects {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
+subprojects {
+    group 'nz.govt.natlib.tools'
+    description = 'National Library of New Zealand Tools Rosetta Dashboard'
+
+    project.ext {
+        vendor = "National Library of New Zealand"
+
+        versionNumber = "1.0.0-SNAPSHOT"
+    }
+
+    apply plugin: 'maven'
+    apply plugin: 'maven-publish'
+
+    configurations {
+        publishableArtifacts
+    }
+
+}
