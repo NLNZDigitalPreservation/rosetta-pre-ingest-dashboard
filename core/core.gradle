@@ -50,6 +50,11 @@ dependencies {
     // Note that Groovy 2.5.x supports JsonGenerator.
     compile localGroovy()
 
+    // For using the REST API, from https://github.com/http-builder-ng/http-builder-ng
+    compile 'io.github.http-builder-ng:http-builder-ng-core:1.0.3'
+    //compile 'io.github.http-builder-ng:http-builder-ng-apache:1.0.3'
+    //compile 'io.github.http-builder-ng:http-builder-ng-okhttp:1.0.3'
+
     // The latest version.
     testCompile "junit:junit:4.12"
 
