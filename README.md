@@ -35,6 +35,19 @@ this eventuality, builds can include the `warning-mode` to notify in advance of 
  gradle [clean] build --warning-mode all
 ```
 
+## Processor usage
+
+Command-line processing can be completed using various command-line options.
+
+For example, to list a board:
+```
+java -jar rosetta-dashboard-fat-all-<VERSION>.jar \
+    --boardUri="http://192.168.200.1" \
+    --username="username" \
+    --password="password" \
+    --listBoard
+```
+
 ## API Reference
 
 To generate javadoc:
