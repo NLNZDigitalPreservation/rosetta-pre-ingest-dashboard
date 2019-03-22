@@ -41,7 +41,7 @@ apply plugin: 'pmd' // source code analyzer
 setVersion(project.ext.versionNumber)
 
 dependencies {
-    compile project(':rosetta-dashboard-core')
+    compile project(':wekan-groovy-sdk-core')
 
     compile gradleApi()
 }

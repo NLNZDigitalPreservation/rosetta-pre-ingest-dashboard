@@ -27,7 +27,7 @@ java {
 setVersion(project.ext.versionNumber)
 
 dependencies {
-    compile project(':rosetta-dashboard-processor')
+    compile project(':wekan-groovy-sdk-processor')
 
     // slf4j for fat jar. Log messages go to console at info level.
     compile 'org.slf4j:slf4j-simple:1.7.26'
@@ -52,7 +52,7 @@ shadowJar {
     classifier = null
     version = project.ext.versionNumber
     manifest {
-        attributes 'Main-Class': 'nz.govt.natlib.tools.rosetta.dashboard.processor.ProcessorRunner'
+        attributes 'Main-Class': 'nz.govt.natlib.tools.wekan.sdk.processor.ProcessorRunner'
     }
 }
 

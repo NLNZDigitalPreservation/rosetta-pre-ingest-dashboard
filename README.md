@@ -1,14 +1,14 @@
-# National Library of New Zealand Rosetta Pre-Ingest Dashboard
+# National Library of New Zealand Wekan Groovy SDK
 
-Manages Rosetta pre-ingestion jobs through a dashboard.
+Provides a groovy-based SDK for accessing the open-source Wekan kanban boards.
 
 ## Synopsis
 
-This repository contains classes used to manage jobs for ingestion into the Rosetta archive system.
+This repository contains classes used to manage Wekan kanban boards (see https://github.com/wekan/wekan).
 
 ## Motivation
 
-A global pre-ingest dashboard allows users to efficiently manage ingestion into the Rosetta system.
+Wekan kanban boards can be a useful way to visualize and manage certain types of dashboard.
 
 ## Important
 
@@ -41,7 +41,7 @@ Command-line processing can be completed using various command-line options.
 
 For example, to list a board:
 ```
-java -jar rosetta-dashboard-fat-all-<VERSION>.jar \
+java -jar wekan-groovy-sdk-fat-all-<VERSION>.jar \
     --boardUri="http://192.168.200.1" \
     --username="username" \
     --password="password" \

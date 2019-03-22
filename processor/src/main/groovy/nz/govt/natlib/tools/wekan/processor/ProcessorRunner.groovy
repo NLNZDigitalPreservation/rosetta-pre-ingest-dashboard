@@ -1,4 +1,4 @@
-package nz.govt.natlib.tools.rosetta.dashboard.processor
+package nz.govt.natlib.tools.wekan.processor
 
 import picocli.CommandLine
 import picocli.CommandLine.Command

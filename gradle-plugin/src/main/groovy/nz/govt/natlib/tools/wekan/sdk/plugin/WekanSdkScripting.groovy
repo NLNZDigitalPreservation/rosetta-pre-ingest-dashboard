@@ -1,4 +1,4 @@
-package nz.govt.natlib.tools.rosetta.dashboard.plugin
+package nz.govt.natlib.tools.wekan.sdk.plugin
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -6,7 +6,7 @@ import org.gradle.api.Project
 /**
  * Rosetta dashboard scripting plugin.
  */
-class RosettaDashboardScripting implements Plugin<Project> {
+class WekanSdkScripting implements Plugin<Project> {
     Project project
 
     /**
