@@ -39,13 +39,107 @@ this eventuality, builds can include the `warning-mode` to notify in advance of 
 
 Command-line processing can be completed using various command-line options.
 
-For example, to list a board:
+### Command-line options:
+
+Running the jar with the option `-h` or `--help` will produce the output:
+```
+Usage: processorRunner [-hl] [--addCard] [--addList] [--currentUserDetails]
+                       [--deleteCard] [--deleteList] [--displayList]
+                       [--listAllBoards] [--listAllCardsForBoard]
+                       [--listAllListsForBoard ] [--updateCard] [ -p=PASSWORD]
+                       [--boardId=BOARD_ID] [--boardName=BOARD_NAME]
+                       [--cardDetails=CARD_DETAILS] [--cardId=CARD_ID]
+                       [--description=DESCRIPTION] [--listId=LIST_ID]
+                       [--title=TITLE] [--userId=USER_ID] [-i=BOARD_URI]
+                       [-u=USERNAME]
+Runs different processors based on command-line options.
+       -p, --password=PASSWORD
+                             Board password.
+                             Required parameter. There is no default.
+      --addCard              Add a card.
+                             Requires --title, --description (--author?).
+      --addList              Add list.
+                             Requires --boardId, --title.
+      --boardId=BOARD_ID     The board id
+      --boardName=BOARD_NAME Board name.
+                             There is no default.
+      --cardDetails=CARD_DETAILS
+                             A JSON string representing the card details.
+                             For example, '{ blah-blah: 'value' }'.
+      --cardId=CARD_ID       The card id
+      --currentUserDetails   Current user details.
+                             Requires --userId.
+      --deleteCard           Delete a card.
+                             Requires --boardId, --listId, --cardId.
+      --deleteList           Delete a list.
+                             Requires --listId.
+      --description=DESCRIPTION
+                             Description.
+                             There is no default.
+      --displayList          Display list.
+                             Requires --boardId, --listId.
+      --listAllBoards        List all boards.
+      --listAllCardsForBoard List all cards for board.
+                             Requires --boardId.
+      --listAllListsForBoard
+                             List all lists for a given board.
+                             Requires --boardId.
+      --listId=LIST_ID       The list id
+      --title=TITLE          Title.
+                             There is no default.
+      --updateCard           Update card.
+                             Requires --boardId, --listId, --cardId, --cardDetails.
+      --userId=USER_ID       The user id
+  -h, --help                 Display a help message.
+  -i, --boardUri=BOARD_URI   Board URI.
+                             Default is 'http://127.0.0.1'.
+  -l, --listBoard            List the entire board.
+                             Optional boardName.
+                             If 'boardName' has not been set then all boards are listed.
+  -u, --username=USERNAME    Board username.
+                             Required parameter. There is no default.
+
+```
+
+### Command-line examples
+
+#### List a board
+List all boards:
 ```
 java -jar wekan-groovy-sdk-fat-all-<VERSION>.jar \
-    --boardUri="http://192.168.200.1" \
-    --username="username" \
-    --password="password" \
+    --boardUri="http-or-https://<url-or-ip-address>" \
+    --username="<username>" \
+    --password="<password>" \
     --listBoard
+```
+
+List a board:
+```
+java -jar wekan-groovy-sdk-fat-all-<VERSION>.jar \
+    --boardUri="http-or-https://<url-or-ip-address>" \
+    --username="<username>" \
+    --password="<password>" \
+    --listBoard \
+    --boardId="<boardId>
+```
+
+#### Add a card to a board
+```
+java -jar wekan-groovy-sdk-fat-all-<VERSION>.jar \
+    --boardUri="http-or-https://<url-or-ip-address>" \
+    --username="<username>" \
+    --password="<password>" \
+    --addCard --title="<card-title>" --description="<card-description>"
+```
+
+#### Delete a card from a board
+```
+java -jar wekan-groovy-sdk-fat-all-<VERSION>.jar \
+    --boardUri="http-or-https://<url-or-ip-address>" \
+    --username="<username>" \
+    --password="<password>" \
+    --deleteCard \
+    --cardId="<card-id>"
 ```
 
 ## API Reference

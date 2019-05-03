@@ -52,7 +52,7 @@ shadowJar {
     classifier = null
     version = project.ext.versionNumber
     manifest {
-        attributes 'Main-Class': 'nz.govt.natlib.tools.wekan.sdk.processor.ProcessorRunner'
+        attributes 'Main-Class': 'nz.govt.natlib.tools.wekan.processor.ProcessorRunner'
     }
 }
 

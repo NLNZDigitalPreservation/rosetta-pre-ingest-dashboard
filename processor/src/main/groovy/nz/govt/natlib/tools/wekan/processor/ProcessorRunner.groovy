@@ -13,49 +13,92 @@ import java.util.concurrent.Callable
 class ProcessorRunner implements Callable<Void>{
     final static String DEFAULT_BOARD_URI = "http://127.0.0.1"
 
-    @Option(names = ["-a", "--addCard"], description = """Add card.
-Requires title.
-Optional description.""")
-    boolean addCard = false
-
-    @Option(names = ["-r", "--removeCard"], description = """Process the source files.
-Output is ready for ingestion by Rosetta.
-Requires sourceFolder, targetFolder, forReviewFolder.
-Uses startingDate, endingDate.
-Optional createDestination, moveFiles.""")
-    boolean removeCard = false
-
-    @Option(names = ["-l", "--listBoard" ], description = """List the entire board.
+    @Option(names = [ "-l", "--listBoard" ], description = """List the entire board.
 Optional boardName.
 If 'boardName' has not been set then all boards are listed.""")
     boolean listBoard = false
 
-    @Option(names = ["-h", "--help" ], usageHelp = true, description = 'Display a help message.')
+    @Option(names = [ "-h", "--help" ], usageHelp = true, description = 'Display a help message.')
     boolean helpRequested = false
 
-    @Option(names = ["-i", "--boardUri"], paramLabel = "BOARD_URI", description = """Board URI.
+    @Option(names = [ "-i", "--boardUri" ], paramLabel = "BOARD_URI", description = """Board URI.
 Default is 'http://127.0.0.1'.""")
     String boardUri
 
-    @Option(names = ["-u", "--username"], paramLabel = "USERNAME", description = """Board username.
+    @Option(names = [ "-u", "--username" ], paramLabel = "USERNAME", description = """Board username.
 Required parameter. There is no default.""")
     String username
 
-    @Option(names = ["-p", "--password"], paramLabel = "PASSWORD", description = """Board password.
+    @Option(names = [ " -p", "--password" ], paramLabel = "PASSWORD", description = """Board password.
 Required parameter. There is no default.""")
     String password
 
-    @Option(names = ["-n", "--boardName"], paramLabel = "BOARD_NAME", description = """Board name.
+    @Option(names = [ "--boardName" ], paramLabel = "BOARD_NAME", description = """Board name.
 There is no default.""")
     String boardName
 
-    @Option(names = ["-t", "--title"], paramLabel = "TITLE", description = """Title.
+    @Option(names = [ "--title" ], paramLabel = "TITLE", description = """Title.
 There is no default.""")
     String title
 
-    @Option(names = ["-d", "--description"], paramLabel = "DESCRIPTION", description = """Description.
+    @Option(names = [ "--description" ], paramLabel = "DESCRIPTION", description = """Description.
 There is no default.""")
     String description
+
+    @Option(names = [ "--userId" ], paramLabel = "USER_ID", description = """The user id""")
+    String userId
+
+    @Option(names = [ "--boardId" ], paramLabel = "BOARD_ID", description = """The board id""")
+    String boardId
+
+    @Option(names = [ "--listId" ], paramLabel = "LIST_ID", description = """The list id""")
+    String listId
+
+    @Option(names = [ "--cardId" ], paramLabel = "CARD_ID", description = """The card id""")
+    String cardId
+
+    @Option(names = [ "--cardDetails" ], paramLabel = "CARD_DETAILS", description = """A JSON string representing the card details.
+For example, '{ blah-blah: 'value' }'.""")
+    String cardDetails
+
+    @Option(names = [ "--currentUserDetails" ], description = """Current user details.
+Requires --userId.""")
+    boolean currentUserDetails = false
+
+    @Option(names = [ "--listAllBoards" ], description = """List all boards.""")
+    boolean listAllBoards
+
+    @Option(names = [ "--listAllListsForBoard" ], description = """List all lists for a given board.
+Requires --boardId.""")
+    boolean listAllListsForBoard = false
+
+    @Option(names = [ "--displayList" ], description = """Display list.
+Requires --boardId, --listId.""")
+    boolean displayList = false
+
+    @Option(names = [ "--addList" ], description = """Add list.
+Requires --boardId, --title.""")
+    boolean addList = false
+
+    @Option(names = [ "--deleteList" ], description = """Delete a list.
+Requires --listId.""")
+    boolean deleteList = false
+
+    @Option(names = [ "--listAllCardsForBoard" ], description = """List all cards for board.
+Requires --boardId.""")
+    boolean listAllCardsForBoard = false
+
+    @Option(names = [ "--addCard" ], description = """Add a card.
+Requires --title, --description (--author?).""")
+    boolean addCard = false
+
+    @Option(names = [ "--deleteCard"], description = """Delete a card.
+Requires --boardId, --listId, --cardId.""")
+    boolean removeCard = false
+
+    @Option(names = [ "--updateCard" ], description = """Update card.
+Requires --boardId, --listId, --cardId, --cardDetails.""")
+    boolean updateCard = false
 
     Timekeeper timekeeper = new Timekeeper()
 
