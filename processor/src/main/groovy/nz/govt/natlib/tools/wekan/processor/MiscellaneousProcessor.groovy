@@ -1,4 +1,4 @@
-package nz.govt.natlib.tools.rosetta.dashboard.processor
+package nz.govt.natlib.tools.wekan.processor
 
 import groovy.util.logging.Slf4j
 import groovyx.net.http.ContentTypes

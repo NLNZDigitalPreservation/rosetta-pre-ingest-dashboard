@@ -7,7 +7,7 @@ allprojects {
 
 subprojects {
     group 'nz.govt.natlib.tools'
-    description = 'National Library of New Zealand Tools Rosetta Dashboard'
+    description = 'National Library of New Zealand Tools Wekan Groovy SDK'
 
     project.ext {
         vendor = "National Library of New Zealand"

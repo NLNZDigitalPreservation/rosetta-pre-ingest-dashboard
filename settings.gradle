@@ -1,4 +1,4 @@
-rootProject.name = 'rosetta-dashboard'
+rootProject.name = 'wekan-groovy-sdk'
 include ":core", ":fat", ":gradle-plugin", ":processor"
 
 // Correctly refer to the children build files
