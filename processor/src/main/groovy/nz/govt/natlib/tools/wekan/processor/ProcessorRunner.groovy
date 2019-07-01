@@ -88,6 +88,10 @@ Requires --listId.""")
 Requires --boardId.""")
     boolean listAllCardsForBoard = false
 
+    @Option(names = [ "--listAllCardsForBoardList" ], description = """List all cards for board.
+Requires --boardId, --listId.""")
+    boolean listAllCardsForBoardList = false
+
     @Option(names = [ "--addCard" ], description = """Add a card.
 Requires --title, --description (--author?).""")
     boolean addCard = false
@@ -130,10 +134,42 @@ Requires --boardId, --listId, --cardId, --cardDetails.""")
         // Do the non-destructive options first
         if (listBoard) {
             MiscellaneousProcessor miscellaneousProcessor = new MiscellaneousProcessor(boardUri, loginToken, timekeeper)
-            if (this.boardName == null || this.boardName.isEmpty()) {
-                miscellaneousProcessor.listBoards()
+            if (boardName != null && !boardName.isEmpty()) {
+                miscellaneousProcessor.listBoardByTitle(boardName)
+            } else if (boardId != null && !boardId.isEmpty()) {
+                miscellaneousProcessor.listBoardById(boardId)
             } else {
-                miscellaneousProcessor.listBoard(this.boardName)
+                miscellaneousProcessor.listBoards()
+            }
+        }
+        if (listAllListsForBoard) {
+            MiscellaneousProcessor miscellaneousProcessor = new MiscellaneousProcessor(boardUri, loginToken, timekeeper)
+            if (boardId != null && !boardId.isEmpty()) {
+                miscellaneousProcessor.listBoardLists(boardId)
+            } else {
+                String message = "listAllListsForBoard requires a boardId"
+                log.error(message)
+                throw new ProcessorException(message)
+            }
+        }
+        if (displayList) {
+            MiscellaneousProcessor miscellaneousProcessor = new MiscellaneousProcessor(boardUri, loginToken, timekeeper)
+            if (boardId != null && !boardId.isEmpty() && listId != null && !listId.isEmpty()) {
+                miscellaneousProcessor.listBoardList(boardId, listId)
+            } else {
+                String message = "displayList requires a boardId and listId"
+                log.error(message)
+                throw new ProcessorException(message)
+            }
+        }
+        if (listAllCardsForBoardList) {
+            MiscellaneousProcessor miscellaneousProcessor = new MiscellaneousProcessor(boardUri, loginToken, timekeeper)
+            if (boardId != null && !boardId.isEmpty() && listId != null && !listId.isEmpty()) {
+                miscellaneousProcessor.listBoardListCards(boardId, listId)
+            } else {
+                String message = "listAllCardsForBoardList requires a boardId and listId"
+                log.error(message)
+                throw new ProcessorException(message)
             }
         }
         if (addCard) {
